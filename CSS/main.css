@@ -16,7 +16,7 @@ h1, h2, h3, p, img, span{
 h1{
 	color: #ffffff;
 	font-family: "Montserrat", sans-serif;
-	padding-bottom: .5em;
+	padding: 2em 0 2em 0;
 }
 
 h2{
@@ -28,17 +28,18 @@ h2{
 h3{
 	color: #eeeeee;
 	font-family: "Montserrat", sans-serif;
-	padding: 2em 0 1em 0;
+	padding: 2em 0 2em 0;
 }
 
 p {
 	color: #666666;
 	font-family: 'Open Sans', sans-serif;
-	font-size: .5em;
+	font-size: 1em;
+	padding: 2em 0 2em 0;
 }
 
 #display {
 	color: #ffffff;
-	font-size: 1em;
+	font-size: 3em;
 	font-family: 'Oswald', sans-serif;
 }

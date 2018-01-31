@@ -22,7 +22,7 @@ function myTimer(){
 	var seconds = (Math.floor((countdown % min ) / sec));
 
 	document.getElementById("display").innerHTML = 
-	days + " days  " + hours + "  hrs  " + minutes + "  min  " + seconds + "  sec";
+	days + "  :  " + hours + "  :  " + minutes + "  :  " + seconds;
 
 	if (countdown < 0){
 		document.getElementById("display").innerHTML = "Game Time!"
