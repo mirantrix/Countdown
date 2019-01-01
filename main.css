@@ -1,0 +1,33 @@
+/* Defaults */
+
+* {
+    box-sizing: border-box;  /* allows to include the padding and border in an element's total width and height. */
+     -webkit-font-smoothing: antialiased;
+}
+
+
+html {
+  font-family: sans-serif; 
+  text-rendering: optimizeLegibility; 
+  font-size: 4vw;
+  line-height: 1.5;
+  font-family: 'Roboto', 'Helvetica', monospace;
+}
+
+body {
+	
+}
+
+
+#clock {
+	font-family: 'Abel', 'Helvetica', monospace;
+	font-size: 12vw;
+	text-align: center;
+}
+
+
+
+#upCommingGames {
+	font-family: 'Roboto', 'Helvetica', monospace;
+	font-size: 4vw;
+}
