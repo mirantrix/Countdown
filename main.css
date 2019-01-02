@@ -14,20 +14,122 @@ html {
   font-family: 'Roboto', 'Helvetica', monospace;
 }
 
-body {
-	
+body{
+  color: #637a86;
+  background-color: #1f1e26;
 }
 
+a, body, div, figure, h1, h2, h3, h4, header, img, nav, p, section, span, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font: inherit;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  object-fit: cover; 
+}
+
+footer {
+  background-color: #263238;
+  color: #637a86;
+  padding: 10vw 4vw;
+}
+
+#container{
+  padding: 4vw;
+}
+
+#jumbotron {
+}
+
+#header {
+  background: linear-gradient(#44ff64, #44dd55);
+  font-family: 'Teko','Helvetica', monospace;
+  font-style: italic;
+  font-size: 10vw;
+  font-weight: bold;
+  color: #FFFFFF;
+  padding-top: 2vw;
+  padding-left: 4vw;
+}
 
 #clock {
-	font-family: 'Abel', 'Helvetica', monospace;
-	font-size: 12vw;
+  font-family: 'Abel', 'Helvetica', monospace;
+  font-size: 14vw;
+  text-align: center;
+}
+
+#clock li{
+  display: inline-block;
 	text-align: center;
 }
 
+#proximoPartido {
+  color: #FFFFFF;
+  padding: 4vw 0;
+}
 
+#proximoPartido h3{
+  text-align: center;
+  color: #8aa6b4;
+  font-family: 'Roboto', 'Helvetica', monospace;
+  font-size: 4vw;
+}
 
-#upCommingGames {
+#games {
+  color: #8aa6b4;
 	font-family: 'Roboto', 'Helvetica', monospace;
 	font-size: 4vw;
+  padding: 10vw 0;
+}
+
+#games h3{
+  color: #FFFFFF;
+  font-family: 'Roboto', 'Helvetica', monospace;
+  font-size: 5vw;
+}
+
+#sponsor img{
+  border-radius: 2vw;
+}
+
+
+.blackFont{
+  color: #000000;
+}
+
+.clockDots {
+  font-family: 'Roboto', 'Helvetica', monospace;
+  font-size: 8vw;
+}
+
+.gameStyles {
+  padding: 4vw 0;
+}
+
+.timeIdentifier {
+  color: #44dd55;
+  font-family: 'Roboto', 'Helvetica', monospace;
+  font-size: 4vw;
+}
+
+div .inline{
+  padding: 4vw 0;
+}
+
+.inline{
+  display: inline-block;
+}
+
+span .inline{
+  display: inline-block;
+}
+
+.right {
+  text-align: right;
+  float: right;
 }

@@ -4,37 +4,42 @@ var calendario = [
 	{	
 	oponente: ["USA SOCCER", "USA"],
 	local: ["USA", "MEX"],
-	fecha: "Dec 1, 2019 15:30:00", 
+	fecha: "July 24, 2019 01:15:00", 
 	estadio: "Bank of America Stadium de Charlotte",
-	torneo: "Amistoso"
+	torneo: "Amistoso",
+	bandera : "img"
 	},
 	{	
 	oponente: ["TRINIDAD y TOBAGO", "TYT"],
 	local: ["TYT", "MEX"],
-	fecha: "Jan 2, 2019 15:30:00", 
-	estadio: "AT&T",
-	torneo: "Amistoso"
+	fecha: "December 21, 2019 23:15:00", 
+	estadio: "AT&T Stadium",
+	torneo: "Amistoso",
+	bandera : "img"
 	},
 	{	
 	oponente: ["JAMAICA", "JAM"],
 	local: ["JAM", "MEX"],
-	fecha: "Mar1, 2019 15:30:00", 
-	estadio: "Por Definir",
-	torneo: "Copa Oro"
+	fecha: "July 21, 2019 15:15:00", 
+	estadio: "Locación Por Definir",
+	torneo: "Copa Oro",
+	bandera : "img"
 	},
 	{	
 	oponente: ["HONDURAS", "HON"],
 	local: ["HON", "MEX"],
-	fecha: "Jan 1, 2019 15:30:00", 
-	estadio: "Por Definir",
-	torneo: "Liga de Naciones de Concacaf"  
+	fecha: "January 21, 2018 01:15:00", 
+	estadio: "Locación Por Definir",
+	torneo: "Liga de Naciones de Concacaf" , 
+	bandera : "img"
 	},
 	{	
 	oponente: ["CANADA", "CAN"],
 	local: ["CAN", "MEX"],
-	fecha: "May 1, 2019 15:30:00", 
-	estadio: "Por Definir",
-	torneo: "Liga de Naciones de Concacaf"  
+	fecha: "January 21, 2019 12:15:00", 
+	estadio: "Locación Por Definir",
+	torneo: "Liga de Naciones de Concacaf" ,
+	bandera : "img"
 	}
 ]
 
@@ -72,9 +77,11 @@ var orderGamesByDate = function(){
 	var orderByDate = calendario.slice(0);
 
 	orderByDate.sort(function(a,b){
-		a.fecha = new Date(a.fecha).getTime();
-		b.fecha = new Date(b.fecha).getTime();
-		return a.fecha - b.fecha;
+
+		if((gameTime(a.fecha) - actualTime()) >= 0){
+			return (gameTime(a.fecha) - gameTime(b.fecha));
+		}
+		
 	});
 
 	return orderByDate;
@@ -82,28 +89,86 @@ var orderGamesByDate = function(){
 };
 
 
+var nextDate;
+
 // Display Games Data
 (function displayGamesByDate(){
 
+	var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+
 	var gamesData = orderGamesByDate();
-		games = 3;
+		games = 4;
+
+	
 
 	for(var j = 0; j < games; j++){
 
-		var cardContainer = document.getElementById('upCommingGames');
+		var game = document.getElementById('games');
+		var upCommingGames = document.getElementById('upCommingGames');
+		var nextGame = document.getElementById('nextGame');
 
-		var aTag = document.createElement("a"),
+		var 
+			divTag = document.createElement("div"),
+			divTagOne = document.createElement("div"),
+			divTagTwo = document.createElement("div"),
 			imgTag = document.createElement("img"),
-			h4Tag = document.createElement("h4"),
-			pTag = document.createElement("p");
+			pOneTag = document.createElement("p"),
+			spanTwoTag = document.createElement("span");
+			pThreeTag = document.createElement("p");
+			pFourTag = document.createElement("p");
+			pFiveTag = document.createElement("p");
 
+		if( j > 0){
 
-		cardContainer.appendChild(h4Tag).innerHTML = new Date(gamesData[j].fecha);
-		cardContainer.lastChild.appendChild(pTag).innerHTML = gamesData[j].oponente[0];
+			
 
+			upCommingGames.appendChild(divTag);
+			upCommingGames.lastChild.appendChild(divTagOne);
+			divTagOne.className = "inline";
 
-		console.log(new Date(gamesData[j].fecha));
+			upCommingGames.lastChild.lastChild.appendChild(spanTwoTag).innerHTML = 'vs ';
+			upCommingGames.lastChild.lastChild.appendChild(spanTwoTag).innerHTML += gamesData[j].oponente[0];
+			upCommingGames.lastChild.lastChild.appendChild(pThreeTag).innerHTML = gamesData[j].torneo;
+
+			upCommingGames.lastChild.appendChild(divTagTwo);
+			divTagTwo.className = "inline right";
+
+			upCommingGames.lastChild.lastChild.appendChild(pOneTag).innerHTML = 	weekdays[new Date(gamesData[j].fecha).getDay()].substring(0,3) + ", " + 
+																					months[new Date(gamesData[j].fecha).getMonth()].toUpperCase().substring(0,3) + " " + 
+																					new Date(gamesData[j].fecha).getDate() + " " + 
+																					new Date(gamesData[j].fecha).getFullYear().toString();
+
+			upCommingGames.lastChild.lastChild.appendChild(pFourTag).innerHTML = 	new Date(gamesData[j].fecha).getHours().toString() + ' : ' +
+																					new Date(gamesData[j].fecha).getMinutes().toString() + " PM" + " PT"  ;
+
+		} else {
+
+			nextGame.appendChild(divTag);
+			nextGame.lastChild.appendChild(divTagOne);
+			divTagOne.className = "inline";
+
+			nextGame.lastChild.lastChild.appendChild(spanTwoTag).innerHTML = 'vs '+ gamesData[j].oponente[0];
+			nextGame.lastChild.lastChild.appendChild(pThreeTag).innerHTML = gamesData[j].torneo;
+
+			nextGame.lastChild.appendChild(divTagTwo);
+			divTagTwo.className = "inline right";
+
+			nextGame.lastChild.lastChild.appendChild(pOneTag).innerHTML = 	weekdays[new Date(gamesData[j].fecha).getDay()].substring(0,3) + ", " + 
+																					months[new Date(gamesData[j].fecha).getMonth()].toUpperCase().substring(0,3) + " " + 
+																					new Date(gamesData[j].fecha).getDate() + " " + 
+																					new Date(gamesData[j].fecha).getFullYear().toString();
+
+			nextGame.lastChild.lastChild.appendChild(pFourTag).innerHTML = 	new Date(gamesData[j].fecha).getHours().toString() + ' : ' +
+																					new Date(gamesData[j].fecha).getMinutes().toString() + " PM" + " PT"  ;
+
+			nextDate = gamesData[j].fecha;
+
+		}
+
 	}
+
 
 })();
 
@@ -115,7 +180,7 @@ function displayDate(){
 
 
 	// Total Remainder
-	var remainingTime = (gameTime("Jan 1, 2019 20:00:00") - actualTime());
+	var remainingTime = (gameTime(nextDate) - actualTime());
 
 	// Remainder of each
 	var seconds = Math.floor((remainingTime % sec) / 1000),
@@ -142,7 +207,6 @@ function displayDate(){
 };
 
 displayDate();
-
 
 
 

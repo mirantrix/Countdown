@@ -5,47 +5,66 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="main.css">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Teko:700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
 
 </head>
 <body>
 
-	<section>
+	<section id = "header">
 		<div>
-			<h2>Selección Mexicana</h2>
+			<h3>LA SELECCIÓN <span class = "blackFont">EL TRI</span></h3>
 		</div>
 	</section>
 
-	<section>
-		<div>
-			<h2>Sponsor</h2>
-			<img src="">
-		</div>
-	</section>
+	<section id = "container">
+		<section id = "jumbotron">
+			<div id = "sponsor">
+				<img src="./media/caliente.png">
+			</div>
+		</section>
 
-	<section>
-		<h4>Tiempo para el Próximo Partido</h4>
-		<div id = 'clock'>
-			<span id = "daysLeft">00</span><span class = "clockDots"> :</span>
-			<span id = "hoursLeft">00</span><span class = "clockDots"> :</span>
-			<span id = "minutesLeft">00</span><span class = "clockDots"> :</span>
-			<span id = "secondsLeft">00</span>
-		</div>
-		<div>
-			<img src="">
-			<h3>SAB 23 de OCT '19 ... 7:30pm</h3>
-			<p>vs Trinidad y Tobago</p>
-			<p>Liga de Naciones Concacaf</p>
-		</div>
-	</section>
+		<section id = "proximoPartido">
+			<h3>Next Match in:</h3>
+			<ul id = 'clock'>
+				<li>
+					<span id = "daysLeft"></span>
+					<span class = "clockDots">: </span>
+					<p class = "timeIdentifier">DAYS</p>
+				</li>
+				<li>
+					<span id = "hoursLeft"></span>
+					<span class = "clockDots">: </span>
+					<p class = "timeIdentifier">HRS</p>
+				</li>
+				<li>
+					<span id = "minutesLeft"></span>
+					<span class = "clockDots">: </span>
+					<p class = "timeIdentifier">MIN</p>
+				</li>
+				<li>
+					<span id = "secondsLeft"></span>
+					<p class = "timeIdentifier">SEC</p>
+				</li>
+			</ul>
+		</section>
 
-	<section id = 'upCommingGames'>
-		
+		<section>
+			<div id = "nextGame"></div>
+		</section>
+
+		<section id = 'games'>
+			<h3>Upcoming Games</h3>
+			<div id = 'upCommingGames'>
+				
+			</div>
+		</section>
+
 	</section>
 
 	<footer>
+		<h4>Thank You for Visiting</h4>
 		<p>advertise@here</p>
 		<ul>
 			<li>Instagram</li>
