@@ -7,7 +7,7 @@ var calendario = [
 	fecha: "July 24, 2019 01:15:00", 
 	estadio: "Bank of America Stadium de Charlotte",
 	torneo: "Amistoso",
-	bandera : "img"
+	bandera : "./media/usaFlag.jpg"
 	},
 	{	
 	oponente: ["TRINIDAD y TOBAGO", "TYT"],
@@ -15,7 +15,7 @@ var calendario = [
 	fecha: "December 21, 2019 23:15:00", 
 	estadio: "AT&T Stadium",
 	torneo: "Amistoso",
-	bandera : "img"
+	bandera : "./media/trinidadytobagoFlag.jpg"
 	},
 	{	
 	oponente: ["JAMAICA", "JAM"],
@@ -23,23 +23,23 @@ var calendario = [
 	fecha: "July 21, 2019 15:15:00", 
 	estadio: "Locación Por Definir",
 	torneo: "Copa Oro",
-	bandera : "img"
+	bandera : "./media/jamaicaFlag.jpg"
 	},
 	{	
 	oponente: ["HONDURAS", "HON"],
 	local: ["HON", "MEX"],
 	fecha: "January 21, 2018 01:15:00", 
 	estadio: "Locación Por Definir",
-	torneo: "Liga de Naciones de Concacaf" , 
-	bandera : "img"
+	torneo: "Liga de Naciones Concacaf" , 
+	bandera : "./media/hondurasFlag.jpg"
 	},
 	{	
 	oponente: ["CANADA", "CAN"],
 	local: ["CAN", "MEX"],
 	fecha: "January 21, 2019 12:15:00", 
 	estadio: "Locación Por Definir",
-	torneo: "Liga de Naciones de Concacaf" ,
-	bandera : "img"
+	torneo: "Liga de Naciones Concacaf" ,
+	bandera : "./media/canadaFlag.jpg"
 	}
 ]
 
@@ -109,10 +109,10 @@ var nextDate;
 		var upCommingGames = document.getElementById('upCommingGames');
 		var nextGame = document.getElementById('nextGame');
 
-		var 
-			divTag = document.createElement("div"),
+		var divTag = document.createElement("div"),
 			divTagOne = document.createElement("div"),
 			divTagTwo = document.createElement("div"),
+			divTagThree = document.createElement("div"),
 			imgTag = document.createElement("img"),
 			pOneTag = document.createElement("p"),
 			spanTwoTag = document.createElement("span");
@@ -120,55 +120,79 @@ var nextDate;
 			pFourTag = document.createElement("p");
 			pFiveTag = document.createElement("p");
 
+
+		var versus = document.createElement("p"),
+			vsTeam = document.createElement("img"),
+			teamName = document.createElement("p"),
+			dateOfGame = document.createElement("p"),
+			timeOfGame = document.createElement("p");
+			tournament = document.createElement("p");
+		
+
+		
 		if( j > 0){
 
-			
-
 			upCommingGames.appendChild(divTag);
-			upCommingGames.lastChild.appendChild(divTagOne);
-			divTagOne.className = "inline";
+			divTag.className = 'schedule';
 
-			upCommingGames.lastChild.lastChild.appendChild(spanTwoTag).innerHTML = 'vs ';
-			upCommingGames.lastChild.lastChild.appendChild(spanTwoTag).innerHTML += gamesData[j].oponente[0];
-			upCommingGames.lastChild.lastChild.appendChild(pThreeTag).innerHTML = gamesData[j].torneo;
+			divTag.appendChild(divTagOne);
+			divTagOne.className = 'inline';
 
-			upCommingGames.lastChild.appendChild(divTagTwo);
-			divTagTwo.className = "inline right";
+			divTagOne.appendChild(divTagThree);
+			divTagThree.className = 'deep';
 
-			upCommingGames.lastChild.lastChild.appendChild(pOneTag).innerHTML = 	weekdays[new Date(gamesData[j].fecha).getDay()].substring(0,3) + ", " + 
-																					months[new Date(gamesData[j].fecha).getMonth()].toUpperCase().substring(0,3) + " " + 
-																					new Date(gamesData[j].fecha).getDate() + " " + 
-																					new Date(gamesData[j].fecha).getFullYear().toString();
+			divTagThree.appendChild(versus).innerHTML = 'vs';
+			divTagThree.appendChild(vsTeam).src = gamesData[j].bandera;
+			divTagThree.appendChild(teamName).innerHTML = gamesData[j].oponente[1];
 
-			upCommingGames.lastChild.lastChild.appendChild(pFourTag).innerHTML = 	new Date(gamesData[j].fecha).getHours().toString() + ' : ' +
-																					new Date(gamesData[j].fecha).getMinutes().toString() + " PM" + " PT"  ;
+			divTagOne.appendChild(tournament).innerHTML = gamesData[j].torneo;
 
+
+			divTag.appendChild(divTagTwo);
+			divTagTwo.className = 'inline right';
+			divTagTwo.appendChild(dateOfGame).innerHTML = 	weekdays[new Date(gamesData[j].fecha).getDay()].substring(0,3) + ", " + 
+															months[new Date(gamesData[j].fecha).getMonth()].toUpperCase().substring(0,3) + " " + 
+														  	new Date(gamesData[j].fecha).getDate() + " " + 
+															new Date(gamesData[j].fecha).getFullYear().toString();
+
+			divTagTwo.appendChild(timeOfGame).innerHTML = 	new Date(gamesData[j].fecha).getHours().toString() + ' : ' +
+														  	new Date(gamesData[j].fecha).getMinutes().toString() + " PM" + " PT"  ;
+
+	
 		} else {
 
 			nextGame.appendChild(divTag);
-			nextGame.lastChild.appendChild(divTagOne);
-			divTagOne.className = "inline";
+			divTag.className = 'schedule';
 
-			nextGame.lastChild.lastChild.appendChild(spanTwoTag).innerHTML = 'vs '+ gamesData[j].oponente[0];
-			nextGame.lastChild.lastChild.appendChild(pThreeTag).innerHTML = gamesData[j].torneo;
+			divTag.appendChild(divTagOne);
+			divTagOne.className = 'inline';
 
-			nextGame.lastChild.appendChild(divTagTwo);
-			divTagTwo.className = "inline right";
+			divTagOne.appendChild(divTagThree);
+			divTagThree.className = 'deep';
 
-			nextGame.lastChild.lastChild.appendChild(pOneTag).innerHTML = 	weekdays[new Date(gamesData[j].fecha).getDay()].substring(0,3) + ", " + 
-																					months[new Date(gamesData[j].fecha).getMonth()].toUpperCase().substring(0,3) + " " + 
-																					new Date(gamesData[j].fecha).getDate() + " " + 
-																					new Date(gamesData[j].fecha).getFullYear().toString();
+			divTagThree.appendChild(versus).innerHTML = 'vs';
+			divTagThree.appendChild(vsTeam).src = gamesData[j].bandera;
+			divTagThree.appendChild(teamName).innerHTML = gamesData[j].oponente[1];
 
-			nextGame.lastChild.lastChild.appendChild(pFourTag).innerHTML = 	new Date(gamesData[j].fecha).getHours().toString() + ' : ' +
-																					new Date(gamesData[j].fecha).getMinutes().toString() + " PM" + " PT"  ;
+			divTagOne.appendChild(tournament).innerHTML = gamesData[j].torneo;
+
+
+			divTag.appendChild(divTagTwo);
+			divTagTwo.className = 'inline right';
+			divTagTwo.appendChild(dateOfGame).innerHTML = 	weekdays[new Date(gamesData[j].fecha).getDay()].substring(0,3) + ", " + 
+															months[new Date(gamesData[j].fecha).getMonth()].toUpperCase().substring(0,3) + " " + 
+														  	new Date(gamesData[j].fecha).getDate() + " " + 
+															new Date(gamesData[j].fecha).getFullYear().toString();
+															
+			divTagTwo.appendChild(timeOfGame).innerHTML = 	new Date(gamesData[j].fecha).getHours().toString() + ' : ' +
+														  	new Date(gamesData[j].fecha).getMinutes().toString() + " PM" + " PT"  ;
+
 
 			nextDate = gamesData[j].fecha;
 
 		}
 
 	}
-
 
 })();
 

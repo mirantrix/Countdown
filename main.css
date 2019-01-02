@@ -24,6 +24,7 @@ a, body, div, figure, h1, h2, h3, h4, header, img, nav, p, section, span, ol, ul
   padding: 0;
   font-size: 100%;
   font: inherit;
+  list-style-type:none
 }
 
 img {
@@ -34,16 +35,17 @@ img {
 }
 
 footer {
+  text-align: center;
   background-color: #263238;
   color: #637a86;
   padding: 10vw 4vw;
 }
 
 #container{
-  padding: 4vw;
 }
 
 #jumbotron {
+  padding: 4vw;
 }
 
 #header {
@@ -73,6 +75,18 @@ footer {
   padding: 4vw 0;
 }
 
+#nextGame .schedule{
+  background-color: #1b1a20;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  height: 100px;
+  padding: 4vw;
+  margin: 4vw 0;
+  border-radius: 2vw;
+}
+
 #proximoPartido h3{
   text-align: center;
   color: #8aa6b4;
@@ -81,20 +95,27 @@ footer {
 }
 
 #games {
+  background-color: #eeeeee;
   color: #8aa6b4;
 	font-family: 'Roboto', 'Helvetica', monospace;
 	font-size: 4vw;
-  padding: 10vw 0;
+  padding: 10vw 4vw;
 }
 
 #games h3{
-  color: #FFFFFF;
+  color: #666666;
   font-family: 'Roboto', 'Helvetica', monospace;
   font-size: 5vw;
+  padding: 0 4vw;
 }
 
 #sponsor img{
   border-radius: 2vw;
+}
+
+#nextGame{
+  color: #8aa6b4;
+  padding: 0vw 4vw 12vw 4vw;
 }
 
 
@@ -118,18 +139,40 @@ footer {
 }
 
 div .inline{
-  padding: 4vw 0;
+  padding-top: 4vw;
+  padding-bottom: 4vw;
 }
 
-.inline{
+
+.schedule{
+  background-color: #ffffff;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  height: 100px;
+  padding: 4vw;
+  margin: 4vw 0;
+  border-radius: 2vw;
+}
+
+
+
+.deep p{
   display: inline-block;
 }
 
+.deep img{
+  vertical-align: baseline;
+  width: 8vw;
+  height: unset;
+  margin: 0 4vw;
+}
 span .inline{
   display: inline-block;
 }
 
 .right {
   text-align: right;
-  float: right;
+  margin-left: auto;
 }
