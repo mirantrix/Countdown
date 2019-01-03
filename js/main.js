@@ -1,48 +1,4 @@
-
-var calendario = [
-
-	{	
-	oponente: ["USA SOCCER", "USA"],
-	local: ["USA", "MEX"],
-	fecha: "July 24, 2019 01:15:00", 
-	estadio: "Bank of America Stadium de Charlotte",
-	torneo: "Amistoso",
-	bandera : "./media/usaFlag.jpg"
-	},
-	{	
-	oponente: ["TRINIDAD y TOBAGO", "TYT"],
-	local: ["TYT", "MEX"],
-	fecha: "December 21, 2019 23:15:00", 
-	estadio: "AT&T Stadium",
-	torneo: "Amistoso",
-	bandera : "./media/trinidadytobagoFlag.jpg"
-	},
-	{	
-	oponente: ["JAMAICA", "JAM"],
-	local: ["JAM", "MEX"],
-	fecha: "July 21, 2019 15:15:00", 
-	estadio: "Locación Por Definir",
-	torneo: "Copa Oro",
-	bandera : "./media/jamaicaFlag.jpg"
-	},
-	{	
-	oponente: ["HONDURAS", "HON"],
-	local: ["HON", "MEX"],
-	fecha: "January 21, 2018 01:15:00", 
-	estadio: "Locación Por Definir",
-	torneo: "Liga de Naciones Concacaf" , 
-	bandera : "./media/hondurasFlag.jpg"
-	},
-	{	
-	oponente: ["CANADA", "CAN"],
-	local: ["CAN", "MEX"],
-	fecha: "January 21, 2019 12:15:00", 
-	estadio: "Locación Por Definir",
-	torneo: "Liga de Naciones Concacaf" ,
-	bandera : "./media/canadaFlag.jpg"
-	}
-]
-
+var determineTeam = seleccionMexicana;
 
 
 // Time of Game
@@ -72,9 +28,9 @@ var timer = setInterval(displayDate, 1000);
 
 
 // Sort Object
-var orderGamesByDate = function(){
+var orderGamesByDate = function(param){
 
-	var orderByDate = calendario.slice(0);
+	var orderByDate = param.slice(0);
 
 	orderByDate.sort(function(a,b){
 
@@ -92,13 +48,13 @@ var orderGamesByDate = function(){
 var nextDate;
 
 // Display Games Data
-(function displayGamesByDate(){
+(function displayGamesByDate(param){
 
 	var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 
-	var gamesData = orderGamesByDate();
+	var gamesData = orderGamesByDate(param);
 		games = 4;
 
 	
@@ -194,7 +150,7 @@ var nextDate;
 
 	}
 
-})();
+})(determineTeam);
 
 
 
@@ -220,7 +176,8 @@ function displayDate(){
 
 	// Display Remainder
 	if(remainingTime < 0){
-		stopInterval();
+		window.location.reload();
+		//stopInterval();
 	} else {
 		secondsLeftId.innerHTML = ("0" + seconds).slice(-2);	
 		minutesLeftId.innerHTML = ("0" + minutes).slice(-2);	
