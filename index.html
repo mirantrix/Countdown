@@ -3,58 +3,50 @@
 <head>
 	<title>TEAM</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css?family=Teko:700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./css/master.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
 
 </head>
 <body>
 
-	<section id = "header">
-		<div>
-			<h3>TEAM { ... }</h3>
-		</div>
-	</section>
+	<div id="container-page" class="center-container column">
 
-	<section id = 'games'>
-			<h4>Upcoming Games</h4>
-			<ul id = 'upCommingGames'></ul>
-	</section>
+		<section id = 'games' class='column'>
+			<h1><span class="pais">MÉXICO</span><span class="green-font">ZONE</span></h1>
+			<h4>Calendario de Próximos Partidos:</h4>
+			<ul id = 'upCommingGames' class="center"></ul>
 
-	<section id = 'otherGame'>
-			<h4>Por Confirmar</h4>
-			<ul id = 'unConfirmed'></ul>
-	</section>
+			<div id ="hashtags">
+				<ul>
+					<li>#SiSePuede</li>
+					<li>#próximosPartidos</li>
+					<li>#calendario</li>
+					<li>#selecciónMexicana</li>
+					<li>#elTri</li>
+					<li>#laSelección</li>
+					<li>#MéxicoVsChile</li>
+					<li>#MéxicoVsParaguay</li>
+					<li>#MéxicoVsVenezuela</li>
+				</ul>
+			</div>
+		</section>
 
-	<section id = 'articulos'>
-			<h2>Artículos</h2>
-			<article>
-				<h3>¿Cuándo juega México?</h3>
-				<p>Calendario de Partidos</p>
-			</article>
-			<article>
-				<h3>La selección mexicana de fútbol anuncia sus primeros dos juegos del 2019</h3>
-				<p>Calendario de la Selección Mexicana</p>
-			</article>
-			<article>
-				<h3>Selección Mexicana: Se confirman partidos de la selección</h3>
-				<p>Juegos del año 2019</p>
-			</article>
-			<article>
-				<h3>Selección Mexicana: Calendario de la Selección Mexicana</h3>
-				<p>Conoce el Calendario</p>
-			</article>
-			<article>
-				<h3>Confirman Primeros Partidos</h3>
-				<p>La Federación Mexicana de Futbol dio a conocer las fechas de la primera gira de la Selección Azteca por Estados Unidos.</p>
-			</article>
-	</section>
+		<section id = 'otherGame'>
+				<ul id = 'unConfirmed'></ul>
+		</section>
 
 
-	<script type="text/javascript" src="./js/teams.js"></script>
+
+
+		<a id="by" href="https://github.com/mirantrix/Countdown" target="_blank">by Mirantrix</a>
+
+	</div>
+
+
+
 	<script type="text/javascript" src="./js/games.js"></script>
-	<script type="text/javascript" src="./js/main.js"></script>
+	<script type="text/javascript" src="./js/main.js" onload="getLocalGames('MEX')"></script>
 
 </body>
 </html>

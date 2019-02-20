@@ -4,7 +4,7 @@ var games = [
 	id: 637263,
 	local: "MEX",
 	visiting: "CHI",
-	match_at: "2019-03-22T16:06:17Z",
+	match_at: "2019-03-23T03:15:00Z",
 	stadium: "SDCCU Stadium",
 	city: "San Diego, CA",
 	tournament: "Amistoso",
@@ -16,9 +16,9 @@ var games = [
 	id: 6546545,
 	local: "MEX",
 	visiting: "PAR",
-	match_at: "2019-03-26T16:06:17Z",
+	match_at: "2019-03-26T07:00:00Z",
 	stadium: "Levis Stadium",
-	city: "Santa Clara",
+	city: "Santa Clara, CA",
 	tournament: "Amistoso",
 	bandera : "./media/usaFlag.jpg",
 	match_ended: false,
@@ -27,8 +27,8 @@ var games = [
 	{
 	id: 9876876,
 	local: "MEX",
-	visiting: null,
-	match_at: "2019-06-05T16:06:17Z",
+	visiting: "VEN",
+	match_at: "2019-06-05T07:00:00Z",
 	stadium: "Mercedes Benz Stadium",
 	city: "Atlanta, GA",
 	tournament: "Amistoso",
@@ -85,6 +85,3 @@ var games = [
 	final_score: null
 	}
 ];
-
-
-console.log(teams);
