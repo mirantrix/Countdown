@@ -1,0 +1,202 @@
+
+body{
+  max-width: 600px;
+  background-color: #19222b;
+  color: #FFFFFF;
+  margin: 0 auto;
+  font-family: "Monda", monospace;
+}
+
+.jumbotron-nupi{
+  margin: 0 0 2rem;
+}
+
+footer{
+  max-width: 600px;
+}
+
+.footer-brand{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 3rem;
+}
+
+.footer-brand figure{
+  padding-right: .8rem;
+}
+
+.footer-brand img{
+  height: 3rem;
+  width: 3rem;
+}
+
+.footer-legal{
+  border-top: 1px solid #7d9cbb;
+  padding-top: 1rem;
+  margin-top: 2rem;
+  color: #7d9cbb;
+}
+
+.siSePuede{
+  color: #00ff72;
+}
+
+.tags{
+  color: #dedede;
+}
+
+.intro{
+  padding: 0 0 .5rem;
+}
+
+.intro h1{
+  font-size: 1.5rem;
+  line-height: 2rem;
+  padding-bottom: .5rem;
+}
+
+.intro p{
+  color: #7d9cbb;
+  width: 80%;
+}
+
+.header{
+  height: 2rem;
+  width: 100%;
+  background-color: #00db62;
+}
+
+#team-cards{
+  min-width: 300px;
+  padding: 0 0 3rem;
+}
+
+#team-cards article{
+  font-family: 'Monda', monospace;
+  padding: 1.6rem 1.6rem 1rem;
+  border: 2px solid #263543;
+  border-radius: .2rem;
+  margin: 2rem 0 .5rem;
+}
+
+.teams{
+  display: flex;
+  letter-spacing: .1rem;
+  flex-direction: column;
+  font-family: 'Syncopate', monospace;
+}
+
+.team{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.team h3{
+  display: flex;
+  font-size: 1.8rem;
+  margin-top: .2rem;
+  line-height: 0rem;
+  padding-left: 1rem;
+}
+
+.team-icon{
+  height: 1.8rem;
+  width: 1.8rem;
+}
+
+
+.match-date{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.month{
+  line-height: 1rem;
+}
+
+.date{
+  font-size: 1.8rem;
+  margin-top: .5rem;
+  line-height: 1rem;
+  font-family: 'Syncopate', monospace;
+  font-weight: 700;
+}
+
+.time{
+  color: #7d9cbb;
+  font-size: .8rem;
+}
+
+.brd-1{
+  display: block;
+  border: .1rem solid #005e2a;
+}
+
+.brd-2{
+  display: block;
+  border: .1rem solid #00b250;
+}
+
+.brd-3{
+  display: block;
+  border: .1rem solid #00ff72;
+}
+
+
+.more-details{
+  display: flex;
+  justify-content: center;
+}
+
+.more-details span{
+  color: #5a748e;
+  display: inline-block;
+  border: .1rem solid #5a748e;
+  border-radius: 1rem;
+  padding: 0rem 1rem .2rem;
+}
+
+.game-emojis{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.emoji-icon{
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: .5rem;
+}
+
+.match-type{
+  color: #7d9cbb;
+}
+
+@font-face {
+  font-family: 'FFF World Cup 2018 Adidas', monospace;
+  src: url("./public/fonts/adidas-mexico.ttf") format('ttf');
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+  #team-cards{
+    min-width: 500px;
+    max-width: 700px;
+  }
+
+  #team-cards article{
+    padding: 3rem 3rem;
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}

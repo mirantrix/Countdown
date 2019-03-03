@@ -1,0 +1,85 @@
+
+body{
+  background-color: #ebeef3;
+  color: #18191c;
+}
+
+.footer-legal{
+  border-top: 1px solid #d2d7e0;
+  color: #d2d7e0;
+}
+
+.siSePuede{
+  color: #00b250;
+}
+
+.tags{
+  color: #7d9cbb;
+}
+
+.intro p{
+  color: #7d9cbb;
+}
+
+.header{
+  background-color: #00db62;
+}
+
+#team-cards article{
+  background-color: #fafcff;
+  border: 2px solid #e6e9ee;
+}
+
+
+.time{
+  color: #7d9cbb;
+}
+
+.brd-1{
+  border: .1rem solid #005e2a;
+}
+
+.brd-2{
+  border: .1rem solid #00b250;
+}
+
+.brd-3{
+  border: .1rem solid #00ff72;
+}
+
+
+.more-details span{
+  color: #5a748e;
+  border: .1rem solid #5a748e;
+}
+
+
+.match-type{
+  color: #7d9cbb;
+}
+
+@font-face {
+  font-family: 'FFF World Cup 2018 Adidas', monospace;
+  src: url("./public/fonts/adidas-mexico.ttf") format('ttf');
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+  #team-cards{
+    min-width: 500px;
+    max-width: 700px;
+  }
+
+  #team-cards article{
+    padding: 3rem 3rem;
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}
