@@ -25,50 +25,7 @@
 		<p>Fechas Confirmadas:</p>
 	</section>
 
-	<section id="team-cards" class="container col-90">
-		<article>
-			<div class="row">
-				<div class="teams col-50">
-					<div class="team mb-xs">
-						<figure>
-							<img class="team-icon" src="./public/images/mex-flag.png" alt="">
-						</figure>
-						<h3 class="">MEX</h3>
-					</div>
-					<div class="team">
-						<figure>
-							<img  class="team-icon" src="./public/images/chi-flag.png" alt="">
-						</figure>
-						<h3>CHI</h3>
-					</div>
-				</div>
-				<div class="match-date col-50">
-					<p class="month">MARZO</p>
-					<p class="date">22</p>
-					<p class="time">Vie, 7:15 pm pt</p>
-				</div>
-			</div>
-			<div class="line row mt-sm">
-				<span class="brd-1 col-33"></span>
-				<span class="brd-2 col-33"></span>
-				<span class="brd-3 col-33"></span>
-			</div>
-			<div class="flex align-center mt-sm">
-				<p class="match-type col-33">AMISTOSO</p>
-				<div class="more-details col-33"></div>
-				<div class="game-emojis col-33 row">
-					<figure>
-						<img class="emoji-icon" src="./public/images/fire.png" alt="">
-					</figure>
-					<figure>
-						<img class="emoji-icon" src="./public/images/soccer-ball.png" alt="">
-					</figure>
-					<figure>
-						<img class="emoji-icon" src="./public/images/face-with-open-mouth.png" alt="">
-					</figure>
-				</div>
-			</div>
-		</article>
+	<section id="match-cards" class="container col-90">
 		<article>
 			<div class="row">
 				<div class="teams col-50">
@@ -155,7 +112,6 @@
 				</div>
 			</div>
 		</article>
-
 	</section>
 
 
@@ -225,7 +181,7 @@
 	</footer>
 
 
-	<script type="text/javascript" src="./js/main.js"></script>
+	<script type="text/javascript" src="./js/main.js" onload="populateHTML()"></script>
 
 </body>
 </html>
