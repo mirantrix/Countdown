@@ -177,3 +177,34 @@ function splitDate(input){
 
   return splitedDate;
 }
+
+
+function getGameEmojis(){
+
+  const container = document.createElement('div');
+  const figure1 = document.createElement('figure');
+  const figure2 = document.createElement('figure');
+  const figure3 = document.createElement('figure');
+  const img1 = document.createElement('img');
+  const img2 = document.createElement('img');
+  const img3 = document.createElement('img');
+
+  container.className = "emoji-container";
+  container.className += " " + "container";
+  img1.className = "game-emojis";
+  img2.className = "game-emojis";
+  img3.className = "game-emojis";
+  img.src = emoji + ".png";
+
+  h3.innerHTML = abbreviation;
+
+  figure1.appendChild(img1);
+  figure2.appendChild(img2);
+  figure3.appendChild(img3);
+  container.appendChild(figure1);
+  container.appendChild(figure2);
+  container.appendChild(figure3);
+
+  return container;
+
+}
