@@ -7,7 +7,7 @@ function getData(){
     return response.text();
   })
   .then(function(text) {
-    var matches = JSON.parse(text)
+    const matches = JSON.parse(text)
     getGamesData(matches)
     console.log('Response successful');
   })
@@ -22,12 +22,14 @@ var matches = [ { "id": "2019-03-22&MEXvsCHI", "local": {"status":"local", "abbr
 
 function populateHTML(){
 
-  for (var i = 0; i < matches.length; i++) {
-    let matchCards = document.getElementById('match-cards');
-    let div = document.createElement('div');
+  console.log(splitDate("2019-06-05T16:00:00Z"));
 
-    let match = setMatchDiv(matches[i].local, matches[i].visiting);
-    let match_date = setDateDiv(matches[i].match_date);
+  for (let i = 0; i < matches.length; i++) {
+    const matchCards = document.getElementById('match-cards');
+    const div = document.createElement('div');
+
+    const match = setMatchDiv(matches[i].local, matches[i].visiting);
+    const match_date = setDateDiv(matches[i].match_date);
 
     div.className = "match-card";
 
@@ -42,14 +44,14 @@ function populateHTML(){
 
 function setMatchDiv(local, visiting){
 
-  let match = document.getElementById('match-cards');
-  let div = document.createElement('div');
-  let ul = document.createElement('ul');
+  const match = document.getElementById('match-cards');
+  const div = document.createElement('div');
+  const ul = document.createElement('ul');
 
   div.className = "match-teams";
 
-  var localTeam = setTeam(local);
-  var visitingTeam =  setTeam(visiting);
+  const localTeam = setTeam(local);
+  const visitingTeam =  setTeam(visiting);
 
   ul.appendChild(localTeam);
   ul.appendChild(visitingTeam);
@@ -61,22 +63,22 @@ function setMatchDiv(local, visiting){
 
 function setDateDiv(match_date){
 
-  let match = parseDate(match_date);
+  const {getMonth, getDate, getHours, getMinutes} = parseDate(match_date);
 
-  let matchCards = document.getElementById('match-cards');
-  let div = document.createElement('div');
-  let month = document.createElement('p');
-  let date = document.createElement('p');
-  let time = document.createElement('p');
+  const matchCards = document.getElementById('match-cards');
+  const div = document.createElement('div');
+  const month = document.createElement('p');
+  const date = document.createElement('p');
+  const time = document.createElement('p');
 
   div.className = "match-date";
   month.className = "month";
   date.className = "date";
   time.className = "time";
 
-  month.innerHTML = match.getMonth;
-  date.innerHTML = match.getDate;
-  time.innerHTML = match.getHours + ":" + match.getMinutes + " pm" + " pt";
+  month.innerHTML = getMonth;
+  date.innerHTML = getDate;
+  time.innerHTML = getHours + ":" + getMinutes + " pm" + " pt";
 
   div.appendChild(month);
   div.appendChild(date);
@@ -86,25 +88,19 @@ function setDateDiv(match_date){
 }
 
 
-function setTeam(localOrVisiting) {
+function setTeam({abbreviation, flag, status}) {
 
-  console.log(localOrVisiting);
-
-  let teamName = localOrVisiting.abbreviation;
-  let imgSrc = localOrVisiting.flag;
-  let status = localOrVisiting.status;
-
-  let team = document.createElement('li');
-  let figure = document.createElement('figure');
-  let img = document.createElement('img');
-  let h3 = document.createElement('h3');
+  const team = document.createElement('li');
+  const figure = document.createElement('figure');
+  const img = document.createElement('img');
+  const h3 = document.createElement('h3');
 
   team.className = status;
   team.className += " " + "team";
   img.className = "team-icon";
-  img.src = imgSrc + ".png";
+  img.src = flag+ ".png";
 
-  h3.innerHTML = teamName;
+  h3.innerHTML = abbreviation;
 
   figure.appendChild(img);
   team.appendChild(figure);
@@ -115,61 +111,68 @@ function setTeam(localOrVisiting) {
 
 
 function parseDate(anyDate){
-  var dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
-  var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octurbe", "Noviembre", "Diciembre"]
+  const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
+  const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octurbe", "Noviembre", "Diciembre"]
 
-  var date = new Date(anyDate);
-  var getDay = date.getDay();
-  var getMonth = date.getMonth();
-  var getFullYear = date.getFullYear();
-  var getDate = date.getDate();
-  var getHours = date.getUTCHours();
-  var getMinutes = date.getMinutes();
-  var getSeconds = date.getSeconds();
-  var getMilliseconds = date.getTime();
-  var getNow = Date.now();
+  const date = new Date(anyDate);
+  const getDay = dias[date.getDay()];
+  const getMonth = meses[date.getMonth()];
+  const getFullYear = date.getFullYear();
+  const getDate = ('0' + date.getDate()).slice(-2);
+  const getHours = date.getUTCHours();
+  const getMinutes = ('0' + date.getMinutes()).slice(-2);
+  const getSeconds = date.getSeconds();
+  const getMilliseconds = date.getTime();
+  const getNow = Date.now();
 
 
-  var parsedDate = {
-    getDay: dias[getDay],
-    getMonth: meses[getMonth],
-    getFullYear: getFullYear,
-    getDate : ('0' + getDate).slice(-2),
-    getHours: getHours,
-    getMinutes: ('0' + getMinutes).slice(-2),
-    getSeconds: getSeconds,
-    getMilliseconds: getMilliseconds,
-    getNow: getNow
+  const parsedDate = {
+    getDay,
+    getMonth,
+    getFullYear,
+    getDate,
+    getHours,
+    getMinutes,
+    getSeconds,
+    getMilliseconds,
+    getNow
   };
 
   return parsedDate;
 }
 
 
-function splitDate(anyDate){
-  var dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
-  var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octurbe", "Noviembre", "Diciembre"]
+function splitDate(input){
 
-  var splitDate = new Date(anyDate).toString();
-  var dateArray = splitDate.split(" ");
-  var getDay =  dateArray[0];
-  var getMonth =  dateArray[1];
-  var getDate =  dateArray[2];
-  var getFullYear =  dateArray[3];
-  var timeArray =  dateArray[4].split(":");
-  var getHours = timeArray[0];
-  var getMinutes = timeArray[1];
-  var getTime = getHours + ":" + getMinutes;
+  const newDate = new Date(input);
+
+  function dateToArray(dateInput) {
+    const dateToStringToArray = dateInput.toString().split(" ");
+    const [day, month, date, fullYear, time] = dateToStringToArray;
+    const timeArray = time.split(":");
+    const [hours, minutes] = timeArray;
+    return {day, month, date, fullYear, time, hours, minutes};
+  }
+
+  const {day, month, date, fullYear, time, hours, minutes} = dateToArray(newDate);
+
+  const getDay =  day;
+  const getMonth =  month;
+  const getDate =  date;
+  const getFullYear =  fullYear;
+  const getHours = hours;
+  const getMinutes = minutes;
+  const getTime = getHours + ":" + getMinutes;
 
 
-  var splitedDate = {
-    getDay: getDay,
-    getMonth: getMonth,
-    getFullYear: getFullYear,
-    getDate : getDate,
-    getHours: getHours,
-    getMinutes: getMinutes,
-    getTime: getTime
+  const splitedDate = {
+    getDay,
+    getMonth,
+    getFullYear,
+    getDate,
+    getHours,
+    getMinutes,
+    getTime
   };
 
   return splitedDate;
