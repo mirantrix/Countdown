@@ -72,19 +72,26 @@ footer{
   padding: 0 0 3rem;
 }
 
-#team-cards article{
+.match-card{
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
   font-family: 'Monda', monospace;
-  padding: 1.6rem 1.6rem 1rem;
-  border: 2px solid #263543;
+  padding: 1rem 1.6rem 1rem;
+  border: 2px solid #d2d7e0;
   border-radius: .5rem;
   margin: 2rem 0 .5rem;
 }
 
-.teams{
+.match-teams{
+  width: 50%;
   display: flex;
   letter-spacing: .1rem;
   flex-direction: column;
-  font-family: 'Syncopate', monospace;
+}
+
+.match-teams li{
+  margin: .4rem 0;
 }
 
 .team{
@@ -96,8 +103,7 @@ footer{
 .team h3{
   display: flex;
   font-size: 1.8rem;
-  margin-top: .2rem;
-  line-height: 0rem;
+  line-height: 1rem;
   padding-left: 1rem;
 }
 
@@ -108,6 +114,7 @@ footer{
 
 
 .match-date{
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -120,9 +127,8 @@ footer{
 
 .date{
   font-size: 1.8rem;
-  margin-top: .5rem;
+  margin-top: .1rem;
   line-height: 1rem;
-  font-family: 'Syncopate', monospace;
   font-weight: 700;
 }
 
