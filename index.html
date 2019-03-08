@@ -13,83 +13,14 @@
 </head>
 <body>
 
-	<section class="intro container col-90">
-		<span class="brd-3 col-10  my-lg"></span>
-		<h1>Próximos Partidos del Tri</h1>
-		<p>Fechas Confirmadas:</p>
-	</section>
+	<section id="intro-card"></section>
 
-	<section id="match-cards" class="container col-90">
-	</section>
+	<section id="match-cards" class="container col-90"></section>
 
+	<footer id= "footer" class="container col-90 py-xl"></footer>
 
-
-	<footer class="container col-90 py-xl">
-
-		<section class="footer container">
-			<div class="footer-brand">
-				<figure>
-						<img src="./public/images/mex-flag.png"  alt="">
-				</figure>
-				<div class="footer-brand-name">
-					<h3>SELECCÍON MEXICANA</h3>
-					<p class="siSePuede">#siSePuede</p>
-				</div>
-			</div>
-
-			<div class="footer-description pb-md">
-				<h4>TAGS</h4>
-				<div class="tags">
-					<ul class="">
-						<li>#calendario</li>
-						<li>#próximosPartidos</li>
-						<li>#elTri</li>
-
-					</ul>
-					<ul class="">
-						<li>#ponteLaVerde</li>
-						<li>#laSelección</li>
-						<li>#méxico</li>
-					</ul>
-				</div>
-
-			</div>
-
-			<!--
-			<div class="footer-social-media pb-md flex auto-nav">
-				<h4>Social Media</h4>
-				<div class="flex wrap">
-					<a class = "footer-link" href="#"><img src="./public/social-media-icons/instagram.png" alt=""></a>
-					<a class = "footer-link" href="#"><img src="./public/social-media-icons/twitter.png" alt=""></a>
-					<a class = "footer-link" href="#"><img src="./public/social-media-icons/github.png" alt=""></a>
-					<a class = "footer-link" href="#"><img src="./public/social-media-icons/hacker-rank.png" alt=""></a>
-				</div>
-			</div>
-
-			<div class="footer-navigation pb-md">
-				<h4>Navigation</h4>
-				<div class="column">
-					<a class = "footer-link" href="#"><span>Portfolio</span></a>
-					<a class = "footer-link" href="#"><span>Services</span></a>
-					<a class = "footer-link" href="#"><span>Products</span></a>
-					<a class = "footer-link" href="#"><span>About</span></a>
-				</div>
-			</div>
-		-->
-		</section>
-
-		<section class="container">
-			<div class="footer-legal">
-				<p class="legal-year">2019 </p>
-				<p class="disclaimer-informative">Sitio de Caracter Informativo</p>
-			</div>
-		</section>
-
-
-	</footer>
-
-
-	<script type="text/javascript" src="./js/main.js" onload="populateHTML()"></script>
+	<script type="text/javascript" src="./js/matches.js"></script>
+	<script type="text/javascript" src="./js/main.js" onload="populateHTML(matchData)"></script>
 
 </body>
 </html>

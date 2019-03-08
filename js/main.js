@@ -8,7 +8,7 @@ function getData(){
   })
   .then(function(text) {
     const matches = JSON.parse(text)
-    getGamesData(matches)
+    populateHTML(matches);
     console.log('Response successful');
   })
   .catch(function(error) {
@@ -17,12 +17,10 @@ function getData(){
 }
 
 
-var matches = [ { "id": "2019-03-22&MEXvsCHI", "local": {"status":"local", "abbreviation": "MEX", "name": "México", "flag": "./public/images/mex-flag" }, "visiting": {"status":"visiting", "abbreviation": "CHI", "name": "Chile", "flag": "./public/images/chi-flag" }, "match_date": "2019-03-22T19:15:00Z", "stadium": "SDCCU Stadium", "city": "San Diego, CA", "tournament": "Amistoso" }, { "id": "2019-03-26&PARvsMEX", "local": {"status":"local", "abbreviation": "PAR", "name": "Paraguay", "flag": "./public/images/par-flag" }, "visiting": {"status":"visiting", "abbreviation": "MEX", "name": "México", "flag": "./public/images/mex-flag" }, "match_date": "2019-03-26T16:00:00Z", "stadium": "Levi's Stadium", "city": "Santa Clara, CA", "tournament": "Amistoso" }, { "id": "2019-06-05&MEXvsVEN", "local": {"status":"local", "abbreviation": "MEX", "name": "México", "flag": "./public/images/mex-flag" }, "visiting": {"status":"visiting", "abbreviation": "VEN", "name": "Venezuela", "flag": "./public/images/ven-flag" }, "match_date": "2019-06-05T16:00:00Z", "stadium": "Mercedes Benz Stadium", "city": "San Diego, CA", "tournament": "Atlanta, GA" }]
+function populateHTML(matches){
 
-
-function populateHTML(){
-
-  console.log(splitDate("2019-06-05T16:00:00Z"));
+  populateIntroCard(fmf);
+  populateFooter(fmf, footer);
 
   for (let i = 0; i < matches.length; i++) {
     const matchCards = document.getElementById('match-cards');
@@ -36,9 +34,7 @@ function populateHTML(){
     div.appendChild(match);
     div.appendChild(match_date);
     matchCards.appendChild(div);
-
   }
-  console.log(document.getElementById('match-cards'));
 }
 
 
@@ -179,6 +175,114 @@ function splitDate(input){
 }
 
 
+
+function populateIntroCard(fmf){
+  const introCard = document.getElementById('intro-card');
+  const introCardSection = createIntroCard(fmf);
+  introCard.appendChild(introCardSection);
+}
+
+
+
+function createIntroCard({name}){
+
+  const matchCards = document.getElementById('intro-card');
+  const container = document.createElement('div');
+  const span = document.createElement('span');
+  const h1 = document.createElement('h1');
+  const p = document.createElement('p');
+
+  container.className = "intro container col-90";
+  span.className = "brd-3 col-10 my-lg";
+
+  h1.innerHTML = name;
+  p.innerHTML = "Próximos Partidos";
+
+  container.appendChild(span);
+  container.appendChild(h1);
+  container.appendChild(p);
+
+  return container;
+
+}
+
+
+function populateFooter(team, footerData){
+
+  const {name, description, avatar, tags} = team;
+  const {year, legal } = footerData;
+
+  const footer = document.getElementsByTagName('footer')[0];
+  footer.id = "footer";
+
+  const footer_brand = createFooterOwner(team);
+  const footer_legal = createFooterLegal(footerData);
+
+  footer.appendChild(footer_brand);
+  footer.appendChild(footer_legal);
+
+  return footer;
+}
+
+
+function createFooterOwner({name, description, avatar}){
+
+  const section = document.createElement('section');
+  section.className = "footer";
+
+  const matchCards = document.getElementById('footer');
+  const container = document.createElement('div');
+  const figure = document.createElement('figure');
+  const img = document.createElement('img');
+  const div = document.createElement('div');
+  const h3 = document.createElement('h3');
+  const p = document.createElement('p');
+
+  container.className = "footer-brand";
+  div.className = "footer-brand-name";
+  p.className = "siSePuede";
+
+  img.src = avatar + ".png";
+  h3.innerHTML = name;
+  p.innerHTML = description;
+
+  figure.appendChild(img);
+  div.appendChild(h3);
+  div.appendChild(p);
+  container.appendChild(figure);
+  container.appendChild(div);
+  section.appendChild(container);
+
+  return section;
+
+}
+
+
+function createFooterLegal({year, legal}){
+
+  const matchCards = document.getElementById('footer');
+  const section = document.createElement('section');
+  const container = document.createElement('div');
+  const legal_year = document.createElement('p');
+  const disclaimer_informative = document.createElement('p');
+
+  section.className = "container";
+  container.className = "footer-legal";
+  legal_year.className = "legal-year";
+  disclaimer_informative.className = "disclaimer-informative";
+
+  legal_year.innerHTML = year;
+  disclaimer_informative.innerHTML = legal;
+
+  container.appendChild(legal_year);
+  container.appendChild(disclaimer_informative);
+  section.appendChild(container);
+
+  return section;
+}
+
+
+
 function getGameEmojis(){
 
   const container = document.createElement('div');
@@ -205,6 +309,7 @@ function getGameEmojis(){
   container.appendChild(figure2);
   container.appendChild(figure3);
 
+  console.log(container);
   return container;
 
 }
