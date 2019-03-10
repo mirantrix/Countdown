@@ -1,0 +1,18 @@
+extends ./layout.pug
+block content
+  body
+    form(action = '/matches', method = 'POST', enctype = 'multipart/form-data')
+      label(for = 'localTeam') Local Team:
+        input(type = 'text', id = '', class = '', name = 'localTeam')
+      label(for = 'visitingTeam') Local Team:
+        input(type = 'text', id = '', class = '', name = 'visitingTeam')
+      label(for = 'matchDate') Local Team:
+        input(type = 'text', id = '', class = '', name = 'matchDate')
+      label(for = 'matchTime') Local Team:
+        input(type = 'text', id = '', class = '', name = 'matchTime')
+      label(for = 'matchLocation') Local Team:
+        input(type = 'text', id = '', class = '', name = 'matchLocation')
+      label(for = 'matchStadium') Local Team:
+        input(type = 'text', id = '', class = '', name = 'matchStadium')
+      input(type = 'submit', value= 'SUBMIT')
+      
