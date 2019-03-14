@@ -4,8 +4,6 @@ const matchesRoute = require('./controllers/matchesRoute');
 const app = express();
 const port = 8080;
 
-app.set('view engine', 'pug');
-
 app.use('/public', express.static('public'));
 
 app.get('/', (req, res) => {
