@@ -1,14 +1,21 @@
 const express = require('express');
-const app = express();
-const port = 8080;
+const cors = require('cors');
 const matchesRoute = require('./controllers/matchesRoute');
 
-app.set('view engine', 'pug');
+const app = express();
 
-app.use('/public', express.static('public'));
+// CORS
+const corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
+const port = 8080;
 
 app.get('/', (req, res) => {
-  res.render('index', {title: 'Hello World', message: 'Hello World'});
+  res.send('Home Page');
 });
 
 app.use('/matches', matchesRoute);
