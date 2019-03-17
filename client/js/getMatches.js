@@ -1,5 +1,5 @@
 function getData() {
-  fetch('http://mirantrix.com/api/games/')
+  fetch('http://localhost:8080/matches') // http://mirantrix.com/api/games/
   .then(function(response) {
   return response.text();
 })
