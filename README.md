@@ -44,8 +44,8 @@ The Next FC Web App shows the upcoming matches of you favorite teams.
 
 ```
 
-$ git clone https://github.com/mirantrix/countdown.git
-$ cd countdown
+$ git clone https://github.com/mirantrix/nextFC.git
+$ cd nextFC
 $ npm install
 $ node server.js
 
