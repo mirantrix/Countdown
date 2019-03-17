@@ -24,29 +24,49 @@ const fmf = {
 
 
 function populateHTML(matches){
-
-  console.log(matches);
-
-  countdown(matches[0].match_date);
-
   populateIntroCard(fmf);
   populateFooter(fmf, footer);
+  divideMatches(matches).upCommingMatches.map(mapMatches);
+}
 
-  for (let i = 0; i < matches.length; i++) {
-    const matchCards = document.getElementById('match-cards');
-    const div = document.createElement('div');
-
-    const match = setMatchDiv(matches[i].local, matches[i].visiting);
-    const match_date = setDateDiv(matches[i].match_date);
-
-    div.className = "match-card";
-
-    div.appendChild(match);
-    div.appendChild(match_date);
-    matchCards.appendChild(div);
+function mapMatches(get, index){
+  if(index === 0){
+    return upCommingMatch(get);
   }
 
+  const matchCards = document.getElementById('match-cards');
+  const div = document.createElement('div');
+
+  const match = setMatchDiv(get.local, get.visiting);
+  const match_date = setDateDiv(get.match_date);
+
+  div.className = "match-card";
+
+  div.appendChild(match);
+  div.appendChild(match_date);
+  return matchCards.appendChild(div);
 }
+
+function upCommingMatch(get){
+  countdown(get.match_date);
+  const upCommingMatch = document.getElementById('upComming-match');
+  const div = document.createElement('div');
+
+  const match = setMatchDiv(get.local, get.visiting);
+  const match_date = setDateDiv(get.match_date);
+
+  div.className = "match-card";
+
+  div.appendChild(match);
+  div.appendChild(match_date);
+  return upCommingMatch.appendChild(div);
+}
+
+
+function filterIt(data){
+    return data.match_date > new Date().getMilliseconds();
+}
+
 
 function countdown(nextMatch){
   const days = document.getElementById('days');
@@ -330,8 +350,6 @@ function createFooterLegal({year, legal}){
   return section;
 }
 
-
-
 function getGameEmojis(){
 
   const container = document.createElement('div');
@@ -359,5 +377,39 @@ function getGameEmojis(){
   container.appendChild(figure3);
 
   return container;
+}
+
+function compareDates(compareDateA, compareDateB){
+  let upComming = parseDate(compareDateA.match_date).getMilliseconds;
+  let farComming = parseDate(compareDateB.match_date).getMilliseconds;
+  return upComming - farComming;
+}
+
+function sortByUpcommingMatches(matches){
+  let upCommingMatches = matches.sort(compareDates);
+  return upCommingMatches;
+}
+
+function divideMatches(object){
+  let sortedObject = sortByUpcommingMatches(object);
+  let previousMatches = [];
+  let upcommingMatches = [];
+  let active = index;
+
+  //Refactor For Loop
+  for (var index = 0; index < sortedObject.length; index++) {
+    if((parseDate(sortedObject[index].match_date).getMilliseconds - new Date().getTime()) > 0){
+      active = index;
+      break;
+    }
+  }
+
+  previousMatches = sortedObject.slice(0, active);
+  upcommingMatches = sortedObject.slice(active, sortedObject.length);
+
+  return {
+    previousMatches: previousMatches,
+    upCommingMatches: upcommingMatches
+  }
 
 }
