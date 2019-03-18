@@ -130,7 +130,7 @@ function setTeam({abbreviation, flag, status}) {
   const h3 = setTag('h3');
 
   teamStatus.className = status;
-  teamStatus.className += " " + "teamStatus";
+  teamStatus.className += " " + "team-status";
   teamIcon.className = "team-icon";
   teamIcon.src = flag + ".png";
 
