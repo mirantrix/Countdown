@@ -17,7 +17,7 @@ The Next FC Web App shows the upcoming matches of you favorite teams.
 
 • Previous Matches from 2019 Season
 
-• Will be represented by the following teams: 
+• Will be represented by the following teams:
 - Mexico's National Soccer Team (SOCCER/FMF)
 - Dallas Cowboys (NFL/DAL)
 
@@ -51,7 +51,7 @@ $ node server.js
 
 ```
 
-## Once server is running, render HTML from countdown directory
+## Once server is running, render HTML from nextFC directory
 
 ```
 

@@ -32,7 +32,7 @@
       "name": "México",
       "flag": "./public/images/mex-flag"
     },
-    "match_date": "2019-03-26T16:00:00",
+    "match_date": "2019-03-26T19:00:00",
     "stadium": "Levi's Stadium",
     "city": "Santa Clara, CA",
     "tournament": "Amistoso"
@@ -53,7 +53,7 @@
     },
     "match_date": "2019-06-05T16:00:00",
     "stadium": "Mercedes Benz Stadium",
-    "city": "San Diego, CA",
-    "tournament": "Atlanta, GA"
+    "city": "Atlanta, GA",
+    "tournament": "Amistoso"
   }
 ]

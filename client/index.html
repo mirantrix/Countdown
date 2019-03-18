@@ -6,55 +6,20 @@
 	<title>Selección Mexicana - NEXT FC</title>
 	<link rel="stylesheet" type="text/css" href="./css/sade.css">
 	<link rel="stylesheet" type="text/css" href="./css/next-fc-mex.css">
+	<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Monda:400,700" rel="stylesheet">
 </head>
 <body>
-
-	<section id="jumbotron">
-		<img src="./public/gifs/gol-borgetti.gif" alt="">
-	</section>
-
-	<section id = "countdown" class="countdown-shadow">
-		<div class="next-match">
-			<h2>Próximo Partido en:</h2>
-		</div>
-		<div id="countdown-clock" class="row justify-center">
-			<div class="timer-blocks">
-				<p id="days" class="time-value"></p>
-				<p class="time-indicator">DÍAS</p>
-			</div>
-			<div class="timer-blocks">
-				<p class="time-symbol">.</p>
-			</div>
-			<div class="timer-blocks">
-				<p id="hours" class="time-value"></p>
-				<p class="time-indicator">HRS</p>
-			</div>
-			<div class="timer-blocks">
-				<p class="time-symbol">:</p>
-			</div>
-			<div class="timer-blocks">
-				<p id="minutes" class="time-value"></p>
-				<p class="time-indicator">MIN</p>
-			</div>
-			<div class="timer-blocks">
-				<p class="time-symbol">:</p>
-			</div>
-			<div class="timer-blocks">
-				<p id="seconds" class="time-value"></p>
-				<p class="time-indicator">SEG</p>
-			</div>
-		</div>
-		<section id="upComming-match" class="container col-90"></section>
-	</section>
-
-
+	<section id = "countdown" class=""></section>
+	<section id="jumbotron"></section>
+	<section id="upComming-match" class="container col-90 countdown-shadow"></section>
 	<section id="intro-card"></section>
 	<section id="match-cards" class="container col-90"></section>
-	<footer id= "footer" class="container col-90 py-xl"></footer>
+	<footer id= "footer" class="pt-xl pb-md"></footer>
 
-	<script type="text/javascript" src="./js/file.js"></script>
+	<script type="text/javascript" src="./js/populateHTML.js"></script>
+	<script type="text/javascript" src="./js/sortData.js"></script>
 	<script type="text/javascript" src="./js/getMatches.js" onload="getData()"></script>
 
 </body>
