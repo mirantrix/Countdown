@@ -1,5 +1,5 @@
 function getData() {
-  const endpoint = 'http://mirantrix.com/api/games/';
+  const endpoint = 'http://localhost:8080/matches';
   fetch(endpoint)
   .then(function(response) {
   return response.text();
