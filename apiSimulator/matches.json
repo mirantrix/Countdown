@@ -13,7 +13,7 @@
     "name": "Chile",
     "flag":"./public/images/chi-flag"
     },
-  "match_date": "2019-03-22T19:15:00",
+  "match_date": "2019-03-22T19:15:00Z",
   "stadium": "SDCCU Stadium",
   "city": "San Diego, CA",
   "tournament":"Amistoso"
@@ -32,7 +32,7 @@
       "name": "México",
       "flag": "./public/images/mex-flag"
     },
-    "match_date": "2019-03-26T19:00:00",
+    "match_date": "2019-03-26T19:00:00Z",
     "stadium": "Levi's Stadium",
     "city": "Santa Clara, CA",
     "tournament": "Amistoso"
@@ -51,7 +51,7 @@
       "name": "Venezuela",
       "flag": "./public/images/ven-flag"
     },
-    "match_date": "2019-06-05T16:00:00",
+    "match_date": "2019-06-05T16:00:00Z",
     "stadium": "Mercedes Benz Stadium",
     "city": "Atlanta, GA",
     "tournament": "Amistoso"

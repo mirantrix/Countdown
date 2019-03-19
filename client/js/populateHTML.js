@@ -50,7 +50,7 @@ function countdown(nextMatch) {
   const perSecond = 1000;
 
   function startCountdown() {
-    let now = parseDate(new Date()).getMilliseconds;
+    let now = new Date().getTime();
     let matchTime = parseDate(nextMatch).getMilliseconds;
     let timeLeft = parseDate(matchTime - now);
 
@@ -130,7 +130,7 @@ function setTeam({abbreviation, flag, status}) {
   const h3 = setTag('h3');
 
   teamStatus.className = status;
-  teamStatus.className += " " + "teamStatus";
+  teamStatus.className += " " + "team-status";
   teamIcon.className = "team-icon";
   teamIcon.src = flag + ".png";
 
@@ -191,9 +191,11 @@ function setMoreInfoDiv(info) {
 function parseDate(anyDate) {
   const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
   const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octurbe", "Noviembre", "Diciembre"]
+  const setMinutesToMilliseconds = 60000;
+  const getTimezoneOffset = new Date().getTimezoneOffset() * setMinutesToMilliseconds;
+  const setTimeZoneOffset = new Date(anyDate).getTime() + getTimezoneOffset
 
-  const date = new Date(anyDate);
-  const getNow = Date.now();
+  const date = new Date(setTimeZoneOffset);
 
   const getDay = dias[date.getDay()];
   const getMonth = meses[date.getMonth()];
@@ -214,8 +216,7 @@ function parseDate(anyDate) {
     getMinutes,
     getSeconds,
     getMilliseconds,
-    getMillisecondsToDays,
-    getNow
+    getMillisecondsToDays
   };
 
   return parsedDate;
