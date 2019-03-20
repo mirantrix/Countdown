@@ -50,14 +50,24 @@ function countdown(nextMatch) {
   const perSecond = 1000;
 
   function startCountdown() {
+    let matchTime = new Date(nextMatch).getTime();
     let now = new Date().getTime();
-    let matchTime = parseDate(nextMatch).getMilliseconds;
-    let timeLeft = parseDate(matchTime - now);
 
-    days.innerHTML = timeLeft.getMillisecondsToDays;
-    hours.innerHTML = timeLeft.getHours;
-    minutes.innerHTML = timeLeft.getMinutes;
-    seconds.innerHTML = timeLeft.getSeconds;
+    let remainder = matchTime - now;
+
+    var getDays = Math.floor(remainder / (1000 * 60 * 60 * 24));
+    var getHours = Math.floor((remainder % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var getMinutes = Math.floor((remainder % (1000 * 60 * 60)) / (1000 * 60));
+    var getSeconds = Math.floor((remainder % (1000 * 60)) / 1000);
+
+    let timeLeft = {getDays, getHours, getMinutes, getSeconds};
+
+    console.log(timeLeft);
+
+    days.innerHTML = ('0' + timeLeft.getDays).slice(-2);
+    hours.innerHTML = ('0' + timeLeft.getHours).slice(-2); timeLeft.getHours;
+    minutes.innerHTML = ('0' + timeLeft.getMinutes).slice(-2);
+    seconds.innerHTML = ('0' + timeLeft.getSeconds).slice(-2);
   }
 
   startCountdown();
@@ -192,10 +202,8 @@ function parseDate(anyDate) {
   const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
   const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octurbe", "Noviembre", "Diciembre"]
   const setMinutesToMilliseconds = 60000;
-  const getTimezoneOffset = new Date().getTimezoneOffset() * setMinutesToMilliseconds;
-  const setTimeZoneOffset = new Date(anyDate).getTime() + getTimezoneOffset
 
-  const date = new Date(setTimeZoneOffset);
+  const date = new Date(anyDate);
 
   const getDay = dias[date.getDay()];
   const getMonth = meses[date.getMonth()];
@@ -205,7 +213,7 @@ function parseDate(anyDate) {
   const getMinutes = ('0' + date.getMinutes()).slice(-2);
   const getSeconds = ('0' + date.getSeconds()).slice(-2);
   const getMilliseconds = date.getTime();
-  const getMillisecondsToDays = Math.floor(getMilliseconds / ( 1000 * 60 * 60 * 24));
+
 
   const parsedDate = {
     getDay,
@@ -215,8 +223,7 @@ function parseDate(anyDate) {
     getHours,
     getMinutes,
     getSeconds,
-    getMilliseconds,
-    getMillisecondsToDays
+    getMilliseconds
   };
 
   return parsedDate;
@@ -237,7 +244,7 @@ function hoursConvertion(time) {
 
 function splitDate(input) {
 
-  const newDate = new Date(input);
+  const newDate = new Date(input).toUTCString();
 
   function dateToArray(dateInput) {
     const dateToStringToArray = dateInput.toString().split(" ");
@@ -252,7 +259,7 @@ function splitDate(input) {
   const getDay =  day;
   const getMonth =  month;
   const getDate =  date;
-  const getFullYear =  fullYear;
+  const getFullYear = fullYear;
   const getHours = hours;
   const getMinutes = minutes;
   const getSeconds = seconds;
