@@ -1,5 +1,5 @@
 function getData() {
-  const endpoint = 'http://localhost:8080/matches';
+  const endpoint = 'http://localhost:8080/api/matches';
   fetch(endpoint)
   .then(function(response) {
   return response.text();
