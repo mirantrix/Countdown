@@ -12,26 +12,16 @@
     <h2>Add New Match</h2>
     <p>Fill the inputs</p>
   </div>
-	<form class="column" action="index.html" method="post">
+	<form class="column" action="http://localhost:8080/upload/" method = "POST" enctype="multipart/form-data">
     <div class="row wrap">
       <label class="column my-sm" for="month">month
         <input class="" list="month" name="month" placeholder="Choose a Month">
         <datalist id="month">
-          <option value="Marzo">
-          <option value="Abril">
-          <option value="Mayo">
-          <option value="Junio">
-          <option value="...">
         </datalist>
       </label>
       <label class="column my-sm" for="date">date
         <input class="" list="date" name="date" placeholder="Choose a date">
         <datalist id="date">
-          <option value="1">
-          <option value="2">
-          <option value="3">
-          <option value="4">
-          <option value="...">
         </datalist>
       </label>
       <label class="column my-sm" for="year">year
@@ -64,8 +54,8 @@
           <option value="...">
         </datalist>
       </label>
-      <label class="column my-sm" for="time-zone">time-zone
-        <input class="" list="time-zone" name="time-zone" placeholder="Choose a time-zone">
+      <label class="column my-sm" for="timeZone">Time Zone
+        <input class="" list="timeZone" name="timeZone" placeholder="Choose a time-zone">
         <datalist id="time-zone">
           <option value="Pacific">
           <option value="Central">
@@ -128,6 +118,10 @@
     </div>
     <input class="" type="submit" name="" value="submit">
   </form>
+
+	<script type="text/javascript" src="../js/populateInputData.js"></script>
+	<script type="text/javascript" src="../js/getInputData.js" onload = "getData()"></script>
+
 
 </body>
 </html>
