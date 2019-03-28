@@ -40,7 +40,7 @@ function toDOM({local, visiting, match_date, stadium, city, tournament}, index) 
 }
 
 function countdown(nextMatch) {
-  countdownHTML();
+  getCountdownClock();
 
   const days = getId('days');
   const hours = getId('hours');
@@ -62,8 +62,6 @@ function countdown(nextMatch) {
 
     let timeLeft = {getDays, getHours, getMinutes, getSeconds};
 
-    console.log(timeLeft);
-
     days.innerHTML = ('0' + timeLeft.getDays).slice(-2);
     hours.innerHTML = ('0' + timeLeft.getHours).slice(-2); timeLeft.getHours;
     minutes.innerHTML = ('0' + timeLeft.getMinutes).slice(-2);
@@ -74,43 +72,64 @@ function countdown(nextMatch) {
   setInterval(startCountdown,perSecond);
 }
 
-// Refactor
-function countdownHTML() {
-  const countdown = getId('countdown');
-  const html = '<div id="countdown-clock" class="row justify-center align-center">\
-    <div class="falta-container">\
-      <p class="faltan">Faltan</p>\
-    </div>\
-    <div class="timer-blocks">\
-      <p id="days" class="time-value"></p>\
-      <p class="time-indicator">DÍAS</p>\
-    </div>\
-    <div class="timer-blocks">\
-      <p class="time-symbol">.</p>\
-    </div>\
-    <div class="timer-blocks">\
-      <p id="hours" class="time-value"></p>\
-      <p class="time-indicator">HRS</p>\
-    </div>\
-    <div class="timer-blocks">\
-      <p class="time-symbol">:</p>\
-    </div>\
-    <div class="timer-blocks">\
-      <p id="minutes" class="time-value"></p>\
-      <p class="time-indicator">MIN</p>\
-    </div>\
-    <div class="timer-blocks">\
-      <p class="time-symbol">:</p>\
-    </div>\
-    <div class="timer-blocks">\
-      <p id="seconds" class="time-value"></p>\
-      <p class="time-indicator">SEG</p>\
-    </div>\
-  </div>';
 
-  countdown.innerHTML = html;
+function appendDateFormat(dateFormatId, literal, innerText) {
+  const clock = getId('countdown-clock');
+  const timerBlocks = setTag('div');
+  const format = setTag('p');
+  const timeIndicator = setTag('p');
+  const symbolBlock = setTag('div');
+  const timeSymbol = setTag('p');
+
+  format.id = dateFormatId;
+
+  timerBlocks.className = 'timer-blocks';
+  format.className = 'time-value';
+  timeIndicator.className = 'time-indicator';
+  symbolBlock.className = 'timer-blocks';
+  timeSymbol.className = 'time-symbol';
+
+  timeIndicator.innerHTML = innerText;
+  timeSymbol.innerHTML = literal;
+
+  timerBlocks.appendChild(format);
+  timerBlocks.appendChild(timeIndicator);
+  symbolBlock.appendChild(timeSymbol);
+
+  clock.appendChild(timerBlocks);
+  if(dateFormatId !== 'seconds') clock.appendChild(symbolBlock);
 }
 
+
+function getCountdownClock() {
+
+  const days = ['days', '.', 'DÍAS'];
+  const hours = ['hours', ':', 'HRS'];
+  const minutes = ['minutes', ':', 'MIN'];
+  const seconds = ['seconds', null, 'SEC'];
+
+  const countdown = getId('countdown');
+  const clock = setTag('div');
+  const timeLeft = setTag('div');
+  const timeLeftTitle = setTag('p');
+
+  clock.id = 'countdown-clock';
+
+  clock.className = 'row justify-center align-center';
+  timeLeft.className = 'falta-container';
+  timeLeftTitle.className = 'faltan';
+
+  timeLeftTitle.innerHTML = 'Faltan';
+
+  timeLeft.appendChild(timeLeftTitle);
+  countdown.appendChild(clock);
+  clock.appendChild(timeLeft);
+
+  appendDateFormat(...days);
+  appendDateFormat(...hours);
+  appendDateFormat(...minutes);
+  appendDateFormat(...seconds);
+}
 
 function setLocalAndVisitingTeamDiv(local, visiting) {
   const match = getId('match-cards');
