@@ -5,6 +5,8 @@
   "main": "app.js",
   "scripts": {
     "server": "nodemon app.js",
+    "client": "cd client && open index.html",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
@@ -18,6 +20,7 @@
   "devDependencies": {
     "acorn": "^6.1.1",
     "babel-eslint": "^9.0.0",
+    "concurrently": "^4.1.0",
     "eslint": "^5.15.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
