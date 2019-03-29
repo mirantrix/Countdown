@@ -6,7 +6,8 @@
   "scripts": {
     "server": "nodemon app.js",
     "client": "cd client && open index.html",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "atom": "atom .",
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run atom\"",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
