@@ -81,14 +81,12 @@ body {
 }
 
 .match {
+  /*
   background-color: #131b22;
-  border-radius: .5rem;
-  margin: 1rem 0;
   border-bottom: 5px solid #1e2a33;
-  background-image: linear-gradient(#1b1b1b #1b1b1b);
-  -webkit-box-shadow: 0px 43px 105px -15px rgba(0,0,0,.5);
-  -moz-box-shadow: 0px 43px 105px -15px rgba(0,0,0,.5);
-  box-shadow: 0px 43px 105px -15px rgba(0,0,0,.5);
+  */
+  border-radius: .3rem;
+  margin: 1rem 0;
 }
 
 .match-card {
@@ -161,7 +159,7 @@ img.team-icon {
 }
 
 .time {
-  color: #dedede;
+  color: #00ff72;
   font-size: .8rem;
   line-height: 1rem;
 }
@@ -216,8 +214,9 @@ img.team-icon {
 
 .complementary-info{
   border-top: 1px solid #2a3943;
+  border-bottom: 1px solid #2a3943;
   display: flex;
-  justify-content: space-around;
+  text-align: center;
   padding: .8rem 0;
   color: #7490a4;
   font-size: .8rem;
@@ -260,7 +259,7 @@ img.team-icon {
   font-size: .8rem;
   font-weight: bold;
   padding: .3rem .8rem;
-  border: 2px solid #00d961;
+  border: 1px solid #00d961;
   border-radius: 1rem;
 }
 
@@ -292,12 +291,18 @@ img.team-icon {
 
 }
 
+.tournament {
+  width: 50%;
+}
+
+.city {
+  width: 50%;
+}
+
 #upComming-match {
-  background-color: #f4f7fe;
+
   width: 100%;
   color: #35485b;
-  padding: 0 0 1rem 0;
-
 }
 
 #upComming-match .intro {
@@ -319,11 +324,6 @@ img.team-icon {
   border-bottom: 5px solid #e1e5f0;
   background-color: #FFFFFF;
   margin: 0 auto;
-  width: 90%;
-  background-image: linear-gradient(#FFFFFF, #FFFFFF);
-  -webkit-box-shadow: 0px 43px 105px -15px rgba(89,97,122,.1);
-  -moz-box-shadow: 0px 43px 105px -15px rgba(89,97,122,.1);
-  box-shadow: 0px 43px 105px -15px rgba(89,97,122,.1);
 }
 
 #upComming-match .date, #upComming-match .match-teams {
@@ -349,6 +349,28 @@ img.team-icon {
   border-bottom: 0;
 }
 
+#profile {
+  padding: 3rem 0 0;
+  background-color: #FFFFFF;
+}
+
+#profile-user {
+  padding: 1.5rem 0 0;
+}
+
+.profile-title {
+  color: #000000;
+  font-size: 1.5rem;
+}
+
+.profile-subtitle {
+  color: #00d961;
+  font-size: 1rem;
+}
+
+.profile-icon {
+  width: 130px;
+}
 
 @font-face  {
   font-family: 'FFF World Cup 2018 Adidas', monospace;
