@@ -12,7 +12,7 @@ class Matches extends Component {
   componentDidMount() {
     Api.getMatches()
       .then(res => res.data)
-      .then(matches => this.setState({ matches, upComingMatch : matches[0] }, () => console.log(matches)))
+      .then(matches => this.setState({ matches, upComingMatch : matches[0] }))
       .catch( error => console.log(error.response));
   }
 
