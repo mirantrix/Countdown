@@ -350,6 +350,7 @@ img.team-icon {
 }
 
 #profile {
+  border-top: 5px solid #00d961;
   padding: 2rem 0 2rem;
   background-color: #FFFFFF;
 }
@@ -361,7 +362,8 @@ img.team-icon {
 .profile-title {
   color: #000000;
   font-size: 1.5rem;
-  font-family: Helvetica
+  font-family: 'Monda', Helvetica;
+  font-weight: 400;
 }
 
 .profile-subtitle {
