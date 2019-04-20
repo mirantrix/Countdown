@@ -3,7 +3,7 @@ body {
   background-color: #212d35;
   color: #FFFFFF;
   margin: 0 auto;
-  font-family: "Monda", monospace;
+  font-family: "Monda", Helvetica;
 }
 
 .jumbotron-nupi {
@@ -92,8 +92,8 @@ body {
 .match-card {
   display: flex;
   flex-direction: row;
-  font-family: 'Monda', monospace;
-  padding: 2rem 1.3rem;
+  font-family: 'Monda', Helvetica;
+  padding: 2rem 1.3rem 1rem;
   justify-content: space-between;
 }
 
@@ -249,7 +249,7 @@ img.team-icon {
   font-size: 1.5rem;
   line-height: 1.3rem;
   font-weight: bold;
-  font-family: 'Abel', monospace;
+  font-family: 'Abel', Helvetica;
   display: flex;
   align-items: flex-end;
 }
@@ -350,17 +350,18 @@ img.team-icon {
 }
 
 #profile {
-  padding: 3rem 0 1rem;
+  padding: 2rem 0 2rem;
   background-color: #FFFFFF;
 }
 
 #profile-user {
-  padding: 1.5rem 0 0;
+  padding: 1rem 0 0;
 }
 
 .profile-title {
   color: #000000;
   font-size: 1.5rem;
+  font-family: Helvetica
 }
 
 .profile-subtitle {
@@ -369,7 +370,11 @@ img.team-icon {
 }
 
 .profile-icon {
-  width: 130px;
+  width: 100px;
+}
+
+.profile-emojis{
+  padding-left: 1rem;
 }
 
 
