@@ -1,38 +1,29 @@
 {
-  "name": "nextFC",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "server": "nodemon app.js",
-    "client": "cd client && open index.html",
-    "atom": "atom .",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run atom\"",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
-  },
-  "author": "",
-  "license": "ISC",
+  "name": "next-fc",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.16.4",
-    "express-form-data": "^2.0.8"
+    "axios": "0.18.0",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-scripts": "2.1.8",
+    "serve": "11.0.0"
   },
-  "devDependencies": {
-    "acorn": "^6.1.1",
-    "babel-eslint": "^9.0.0",
-    "concurrently": "^4.1.0",
-    "eslint": "^5.15.1",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-config-wesbos": "0.0.19",
-    "eslint-plugin-html": "^5.0.3",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-react-hooks": "^1.5.0",
-    "nodemon": "^1.18.10",
-    "prettier": "^1.16.4"
-  }
+  "scripts": {
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
