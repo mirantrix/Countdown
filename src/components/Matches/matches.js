@@ -6,7 +6,8 @@ import Dates from '../../services/Dates/dates';
 class Matches extends Component {
   state = {
     matches: [],
-    upComingMatch: {}
+    upComingMatch: {},
+    imagesEndpoint: 'http://mirantrix.com/nextfc/fmf/images/'
    };
 
   componentDidMount() {
@@ -33,14 +34,15 @@ class Matches extends Component {
                     <ul>
                       <li className='local team-status'>
                         <figure>
-                          <img className='team-icon' alt= '' src= {`images/${ match.local.icon }.png`}/>
+                          {console.log(this.state.imagesEndpoint)}
+                          <img className='team-icon' alt= '' src= {`${this.state.imagesEndpoint}${ match.local.icon }.png`}/>
                         </figure>
                         <h3>{ match.local.abbreviation }</h3>
                       </li>
                       <li className='versus'>VS</li>
                       <li className='visiting team-status'>
                         <figure>
-                          <img className='team-icon' alt= '' src= {`images/${ match.visiting.icon }.png`}/>
+                          <img className='team-icon' alt= '' src= {`${this.state.imagesEndpoint}${ match.visiting.icon }.png`}/>
                         </figure>
                         <h3>{ match.visiting.abbreviation }</h3>
                       </li>
