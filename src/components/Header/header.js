@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 
 
 class Header extends Component {
+  state = {
+    imagesEndpoint: 'http://mirantrix.com/nextfc/fmf/images/'
+   };
+
   render() {
     return (
       <div>
         <section id = 'profile' className = 'container column align-center countdown-shadow'>
           <figure className = 'profile-pic'>
-            <img className = 'profile-icon' src='images/fmf-logo.png' alt=''/>
+            <img className = 'profile-icon' src={`${this.state.imagesEndpoint}fmf-logo.png`} alt=''/>
           </figure>
           <div id = 'profile-user' className='column align-center'>
             <h1 className = 'profile-title'>Selección de México</h1>
