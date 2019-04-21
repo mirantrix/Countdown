@@ -15,7 +15,7 @@ class Header extends Component {
           </figure>
           <div id = 'profile-user' className='column align-center'>
             <h1 className = 'profile-title'>Selección de México</h1>
-            <div className = 'row'>
+            <div className = 'row align-center'>
               <p className = 'profile-subtitle'>#próximosPartidos</p>
               <div className = "profile-emojis">
                 <span role='img' aria-label=''>&#128525;</span>
