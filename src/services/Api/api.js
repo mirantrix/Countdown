@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://codejump.herokuapp.com/'
+  baseURL: 'https://apijump.herokuapp.com/'
 });
 
-const getMatches = () => axiosInstance.get('https://codejump.herokuapp.com/matches/fmf');
+const getMatches = () => axiosInstance.get('https://apijump.herokuapp.com/matches/fmf');
 
 export default {
   getMatches
