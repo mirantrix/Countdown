@@ -62,7 +62,7 @@ $ npm run dev
 
 It will become active again after a short delay
 
-[https://nextfc.herokuapp.com/](https://deploy-node-app.herokuapp.com/)
+[https://nextfc.herokuapp.com/](https://nextfc.herokuapp.com/)
 
 
 
