@@ -58,9 +58,9 @@ $ npm run dev
 
 
 
-# PoC Live Link
+# NextFC Live Link
 
-It will become active again after a short delay
+Click to wake up Dyno, takes about 10 seconds...
 
 [https://nextfc.herokuapp.com/](https://nextfc.herokuapp.com/)
 
